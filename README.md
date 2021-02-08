@@ -19,3 +19,6 @@ To install docker using Rancher's installation script, pease enter the following
 #### Step 2: Install k3s with docker option using Rancher install script
 Enter the following command in your bash terminal:
 **"curl -sfL https://get.k3s.io | sh -s - --docker"**
+#### Step 3 (Optional): Create an kubectl alias for "sudo k3s kubectl"
+In order to execute kubectl commands on your Ubuntu VM, you will need to enter "sudo k3s kubectl".  You may want to shorten this to just "kubectl" by creating an alias.  You can create a temporary alias by entering the following command in your bash terminal: **"alias kubectl="sudo k3s kubectl"** If you want your alias to persist after reboot then you will need to add it to your .bashrc file in your home directory. **$ vim ~/.bashrc**
+
