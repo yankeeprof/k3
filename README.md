@@ -13,6 +13,9 @@ You can install docker on your VM by following the directions on the docker inst
 
 Follow the directions on this docker website to install docker on Ubuntu: https://docs.docker.com/engine/install/ubuntu/ 
 
-To install docker using Rancher's installation script, pease enter the following command in your terminal:
+To install docker using Rancher's installation script, pease enter the following command in your bash terminal:
 
 **"curl https://releases.rancher.com/install-docker/20.10.sh | sh"**
+#### Step 2: Install k3s with docker option using Rancher install script
+Enter the following command in your bash terminal:
+**"curl -sfL https://get.k3s.io | sh -s - --docker"**
