@@ -8,3 +8,9 @@ https://rancher.com/docs/k3s/latest/en/advanced/
 
 https://github.com/rancher/local-path-provisioner/blob/master/README.md#usage
 ## k3s Installation Steps
+#### Step 1: Install docker on your Linux VM
+You can install docker on your VM by following the directions on the docker installation Website or you can install docker by using Rancher's installation script.
+
+Follow the directions on this docker website to install docker on Ubuntu: https://docs.docker.com/engine/install/ubuntu/ 
+
+To install docker using Rancher's installation script, pease enter the following command in your terminal: **curl https://releases.rancher.com/install-docker/20.10.sh | sh**
