@@ -14,4 +14,4 @@ You can install docker on your VM by following the directions on the docker inst
 Follow the directions on this docker website to install docker on Ubuntu: https://docs.docker.com/engine/install/ubuntu/ 
 
 To install docker using Rancher's installation script, pease enter the following command in your terminal: 
-**curl https://releases.rancher.com/install-docker/20.10.sh | sh**
+**"curl https://releases.rancher.com/install-docker/20.10.sh | sh"**
