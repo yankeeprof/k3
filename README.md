@@ -45,6 +45,6 @@ spec:
     requests:
       storage: 10Gi
 ```
-After applying your yaml you can check on its status by entering the following command in your bash terminal: **"kubectl get pvc"** and you should see your jenkins-pvc deployed with an UNBOUND status. When you create your Jenkins deployment it will use this pvc and its status will change to BOUND.
+After applying your yaml you can check on its status by entering the following command in your bash terminal: **"kubectl get pvc"** and you should see your jenkins-pvc deployed with an UNBOUND status. When you create your Jenkins deployment it will use this pvc and its status will change to BOUND. You will creaate your presistent volume for this pvc in your jenkins deployment yaml.
 
 
