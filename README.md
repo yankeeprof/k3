@@ -29,7 +29,7 @@ NAME                                      READY   STATUS    RESTARTS   AGE
 local-path-provisioner-5696dbb894-t7hkj   1/1     Running   0          9d
 ```
 #### Step 5: Create a Jenkins persistent volume claim for your Jenkins deployment
-This jenkins-pvc.yaml creates a persisent volume claim that uses your Kubernetes default namespace and reserves 10GB of local storage for your Jenkins deployment. You can change both of these values to suit your own environment.  You must however use storageClassName: local-path established by our local-path-storage-path.yaml in **Step 4**.  From the directory where you have saved your jenkins-pvc.yaml, apply the yaml by entering the following command in your bash terminal: **"kubectl apply -f jenkins.pvc.yaml"**.  
+This jenkins-pvc.yaml creates a persisent volume claim that uses your Kubernetes default namespace and reserves 10GB of local storage for your Jenkins deployment. You can change both of these values to suit your own environment.  You must however use "storageClassName: local-path" established by our local-path-storage-path.yaml in **Step 4** for any pvc you create for any deployment or pod.  From the directory where you have saved your jenkins-pvc.yaml, apply the yaml by entering the following command in your bash terminal: **"kubectl apply -f jenkins.pvc.yaml"**.  
 
 ```
 apiVersion: v1
