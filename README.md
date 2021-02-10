@@ -22,4 +22,10 @@ Enter the following command in your bash terminal:
 #### Step 3 (Optional): Create a kubectl alias for "sudo k3s kubectl"
 In order to execute kubectl commands on your Ubuntu VM, you will need to enter "sudo k3s kubectl".  You may want to shorten this to just "kubectl" by creating an alias.  You can create a temporary alias by entering the following command in your bash terminal: **"alias kubectl="sudo k3s kubectl"** If you want your alias to persist after reboot then you will need to add it to your .bashrc file in your home directory. **$ vim ~/.bashrc**
 #### Step 4: Create Persistent Local Storage for k3s Kubernetes
-Creating a persistent local storage environment for your Kubernetes pods and deployments is not an easy task requiring you to map local directories to create a storage class that you can use to create persistent volume claims and persistent volumes for your pods and deployments.  Ranger k3s has made this task simple by using a local-path-provisioner container.  You just apply the local-path-storage.yaml that is in this repository by entering the following command on your k3s node: **kubectl apply -f local-storage-path.yaml**.   
+Creating a persistent local storage environment for your Kubernetes pods and deployments is not an easy task requiring you to map local directories to create a storage class that you can use to create persistent volume claims and persistent volumes for your pods and deployments.  Ranger k3s has made this task simple by using a local-path-provisioner container.  You just apply the local-path-storage.yaml that is in this repository by entering the following command in your k3s node's bash terminal: **"kubectl apply -f local-storage-path.yaml"**. You can check to make sure your provisioner container entering the following command in your bash terminal: **"kubectl get pods -n local-path-storage"**.  You should see your local-path-provisioner container running.
+``` k3-admin@k3-server:~/jenkins$ kubectl get pods -n local-path-storage
+NAME                                      READY   STATUS    RESTARTS   AGE
+local-path-provisioner-5696dbb894-t7hkj   1/1     Running   0          9d
+```
+#### Step 5: Create a Jenkins persistent volume claim for your Jenkins deployment
+
