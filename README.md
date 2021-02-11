@@ -75,7 +75,8 @@ spec:
 "jenkins-deploy.yaml" 28L, 558C   
 ```
 After you apply the yaml, you can check to see if your jenkins deployment container is up and running by entering the following command in your k3s host terminal: **"kubectl get pods"**.
-```k3-admin@k3-server:~/jenkins$ kubectl get pods
+```
+k3-admin@k3-server:~/jenkins$ kubectl get pods
 [sudo] password for k3-admin: 
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx-deployment-5d59d67564-jdt8t    1/1     Running   0          14d
