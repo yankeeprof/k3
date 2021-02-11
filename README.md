@@ -84,5 +84,29 @@ volume-test                          1/1     Running   0          10d
 jenkins-deployment-c9dcd78f7-59dgl   1/1     Running   0          10d
 ```
 #### Step 7: Deploy Your Jenkins Service:
-From the directory where you saved your jenkins-service.yaml, you can apply your Jenkins service using the following command: **"kubectl apply -f jenkins-service.yaml"**. In your service yaml you are mapping your deployment jenkins app where the container is using port 8080 to node port 31080.  You mainly use node port type for Kubernetes services in a home lab environment. In a public cloud environment, you would use service type load balancer and your cloud provider would automaticially spin up a load balancer that you would connect from a client to access your Jenkins Web-UI.  For service type node port in this setup, you simmply use the ip address of your k3 host plus the node port port to access your Jenkins Web-UI, e.g., https://<k3 Kubernetes host IP address>:31080.  After setting up your password, you will be able to access your Jenkins Web-UI and start configuring your CI/CD pipeline services.  All your configurations will be pesistently stored on your local k3 host via your jenkins pvc.  To test that your persistent storage is working, delete your Jenkins service and deployment app by entering the following commands in your k3 terminal from the directory where your yaml's are stored: **"kubectl delete -f jenkins-service.yaml"** and **"kubectl delete -f jeninks-deploy.yaml"** then reapply these same yamls by entering the following commands: **"kubectl apply -f jenkins-deploy.yaml"** and **"jenkins-service.yaml"**. When you access your Jenkins Web-UI again using https:<k3 Kubernetes host IP address>:31080, you should be able to authenticate using the passwords you configured before deleting your jenkin service and deployment. 
-
+From the directory where you saved your jenkins-service.yaml, you can apply your Jenkins service using the following command: **"kubectl apply -f jenkins-service.yaml"**. In your service yaml you are mapping your deployment jenkins app where the container is using port 8080 to node port 31080.  You mainly use node port type for Kubernetes services in a home lab environment. In a public cloud environment, you would use service type load balancer and your cloud provider would automaticially spin up a load balancer that you would connect from a client to access your Jenkins Web-UI.  For service type node port in this setup, you simmply use the ip address of your k3 host plus the node port port to access your Jenkins Web-UI, e.g., https://<k3 Kubernetes host IP address>:31080.  After setting up your password, you will be able to access your Jenkins Web-UI and start configuring your CI/CD pipeline services.  All your configurations will be pesistently stored on your local k3 host via your jenkins pvc.  To test that your persistent storage is working, delete your Jenkins service and deployment app by entering the following commands in your k3 terminal from the directory where your yaml's are stored: **"kubectl delete -f jenkins-service.yaml"** and **"kubectl delete -f jeninks-deploy.yaml"** then reapply these same yamls by entering the following commands: **"kubectl apply -f jenkins-deploy.yaml"** and **"jenkins-service.yaml"**. When you access your Jenkins Web-UI again using https:<k3 Kubernetes host IP address>:31080, you should be able to authenticate using the passwords you configured before deleting your jenkin service and deployment.
+```apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31080
+  selector:
+    app: jenkins
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+~                                                                                                                 
+"jenkins-service.yaml" 12L, 178C 
+```   
