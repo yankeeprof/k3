@@ -47,7 +47,7 @@ spec:
 ```
 After applying your yaml you can check on its status by entering the following command in your bash terminal: **"kubectl get pvc"** and you should see your jenkins-pvc deployed with an UNBOUND status. When you create your Jenkins deployment it will use this pvc and its status will change to BOUND. You will creaate your presistent volume for this pvc in your jenkins deployment yaml.
 #### Step 6: Applying your Jenkins Deployment Yaml for Your Jenkins Service
-In your jenkins-deploy.yaml file, you will deploy the latest Jenkins container image which will use container port 8080 for the Jenkins Web-UI.  You will map the container port to a node port in your service yaml so you can connect to the Web UI from a client that it is external to your k3s node.  In this deployment yaml you are creating your persistent volume, named jenkins and mapping the pvc you cretead in **step 5** to your jenkins persistent volume.  Your Jenkins container will locally store, on your k3s node, all the data in its /var/jenkins_home diretory data using the jenkins-pvc that you mapped to your nodes local storage in **Steps 4 & 5**.  As a result all your Jenkins container configurations will persist even if the container is deleted and when you redeploy your Jenkins container the same configurations will reamin.  From the directory where you saved your jenkins-deploy.yaml, you can apply your deployment using the following command: **"kubectl apply -f jenkins-deploy"**. 
+In your jenkins-deploy.yaml file, you will deploy the latest Jenkins container image which will use container port 8080 for the Jenkins Web-UI.  You will map the container port to a node port in your service yaml so you can connect to the Web UI from a client that it is external to your k3s node.  In this deployment yaml you are creating your persistent volume, named jenkins and mapping the pvc you cretead in **step 5** to your jenkins persistent volume.  Your Jenkins container will locally store, on your k3s node, all the data in its /var/jenkins_home diretory data using the jenkins-pvc that you mapped to your nodes local storage in **Steps 4 & 5**.  As a result all your Jenkins container configurations will persist even if the container is deleted and when you redeploy your Jenkins container the same configurations will reamin.  From the directory where you saved your jenkins-deploy.yaml, you can apply your deployment using the following command: **"kubectl apply -f jenkins-deploy.yaml"**. 
 ```    
 spec:
   replicas: 1
@@ -74,4 +74,14 @@ spec:
 
 "jenkins-deploy.yaml" 28L, 558C   
 ```
+After you apply the yaml, you can check to see if your jenkins deployment container is up and running by entering the following command in your k3s host terminal: **"kubectl get pods"**.
+```k3-admin@k3-server:~/jenkins$ kubectl get pods
+[sudo] password for k3-admin: 
+NAME                                 READY   STATUS    RESTARTS   AGE
+nginx-deployment-5d59d67564-jdt8t    1/1     Running   0          14d
+nginx-deployment-5d59d67564-hkbnx    1/1     Running   0          14d
+volume-test                          1/1     Running   0          10d
+jenkins-deployment-c9dcd78f7-59dgl   1/1     Running   0          10d
+```
+
 
