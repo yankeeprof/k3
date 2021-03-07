@@ -134,8 +134,10 @@ resource "kubernetes_service" "jenkins-tf" {
 }
 ```
 #### 1. The config_path section
-This section tells Terraform where to find the KUBECONFIG environment config file on your k3s node.  The default path is ~/.kube/config.
+This section tells Terraform where to find the KUBECONFIG environment config file on your k3s node. The default path is ~/.kube/config.
 #### 2. The kubernetes_namespace section
 In this section terraform creates the kubernetes namespace: "jenkins-tf"
 #### 3. The kubernetes_persistent_volume_claim section
-In this section terraform creates the pvc named: "jenkins-claim" in the :namespace: "jenkins-tf".
+In this section terraform creates the pvc named: "jenkins-claim" in the :namespace: "jenkins-tf". The jenkins-claim pvc will use 10GB of storage using the local-path storage class you configured when installing your k3s node.  This section depends on the namespace jenkins-tf being created first.
+#### 4. The kubernetes_deployment section
+In this section terraform creates the "jenkinsapp" deployment in the "jenkins-tf" namespace. The deployment uses container image "jenkins/jenkins:latest" and names the running deployment app container: "jenkins-container".  The jenkins container will listen on tcp port 8080.  Terraform will create a volume named: 'jenkins-persistent-storage".  Terroafrm will assign the jenkins-claim pvc to this volume where the jenkins container's "/var/jenkins_home" file will be persistently stored on your local k3s host.  As a result when you "terraform destory" this main.tf, your jenkins container's configurations will persist.
