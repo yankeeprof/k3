@@ -4,7 +4,7 @@
 #### Step 1: Installing Terraform
 Follow the steps on this website to install Terraform using an APT repository: https://www.terraform.io/docs/cli/install/apt.html
 #### Step 2: Configure Terraform's KUBECONFIG environment on your k3s kubernetes node
-Terraform needs the certificate-autohority-data, the client-certificate-data and the local host address to execute kubnetes commands on your local k3s node. These items are found in your k3 node's home .kube directory's config file "~/.kube/config".  You will need to create ~/.kube/config file by coping the /etc/rancher/k3s/k3s.yaml to ~/.kube/config: "cp /etc/rancher/k3s/k3s.yaml ~/.kube/config.  The contents of your ~/.kube/config file should look look similar to this:
+Terraform needs the certificate-autohority-data, the client-certificate-data and the local host address to execute kubnetes commands on your local k3s node. These items are found in your k3 node's home .kube directory's config file "~/.kube/config".  You will need to create a ~/.kube/config file by coping the /etc/rancher/k3s/k3s.yaml to ~/.kube/config: "cp /etc/rancher/k3s/k3s.yaml ~/.kube/config.  The contents of your ~/.kube/config file should look look similar to this:
 ```
 apiVersion: v1
 clusters:
