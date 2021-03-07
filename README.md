@@ -111,3 +111,4 @@ spec:
 ~                                                                                                                 
 "jenkins-service.yaml" 12L, 178C 
 ```   
+## See the k3s terroform branch of this repository to view the terraform script that will deploy a Jenkins service on a Rancher k3s kubernetes node. 
