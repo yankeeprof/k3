@@ -9,7 +9,7 @@ Terraform needs the certificate-autohority-data, the client-certificate-data and
 apiVersion: v1
 clusters:
 - cluster:
-    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkakNDQVIyZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQWpNU0V3SHdZRFZRUURE ... Part of the data has been left out intentionally
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JS ... Part of the data has been left out intentionally
     server: https://127.0.0.1:6443
   name: default
 contexts:
@@ -23,8 +23,8 @@ preferences: {}
 users:
 - name: default
   user:
-    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJrVENDQVRlZ0F3SUJBZ0lJTWdLQ3BrWUhRa0F3Q2dZSUtvWkl6ajBFQXdJd0l6RWhNQjhHQTFVRUF3d1kKYXpOekxXTnNhV1Z1ZEMxa ... Part of the data has been left out intentionally
-    client-key-data: LS0tLS1CRUdJTiBFQyBQUklWQVRFIEtFWS0tLS0tCk1IY0NBUUVFSU94cGcyUC9aYnNTM1VyM2I3K0 .. Part of the data has been left out intentionally.
+    client-certificate-data: LS0tLS1CRU ... Part of the data has been left out intentionally
+    client-key-data: LS0tLS1CRUdJTiBFQy .. Part of the data has been left out intentionally.
 ```
 #### Step 2: 
 ### main.tf file
