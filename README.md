@@ -133,7 +133,6 @@ resource "kubernetes_service" "jenkins-tf" {
   }
 }
 ```
-                                                                                1,1           Top
 #### 1. The config_path section
 This section tells Terraform where to find the KUBECONFIG environment config file on your k3s node.  The default path is ~/.kube/config.
 #### 2. The kubernetes_namespace section
