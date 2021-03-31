@@ -111,4 +111,4 @@ spec:
 ~                                                                                                                 
 "jenkins-service.yaml" 12L, 178C 
 ```   
-## See the k3s terroform branch of this repository to deploy this same Jenkins service on a Rancher k3s kubernetes node using terraform. 
+## See the k3s terraform branch of this repository to deploy this same Jenkins service on a Rancher k3s kubernetes node using terraform. 
